@@ -1,4 +1,5 @@
 import 'package:api_1/budget_repository.dart';
+import 'package:api_1/failure_model.dart';
 import 'package:api_1/spending_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -64,9 +65,13 @@ class BudgetScreen extends ConsumerWidget {
           );
         },
         error: (error, _) {
-          // final failure = error as Failure;
-          return Center(
-            child: Text(error.toString()),
+          if (error is Failure) {
+            return FailureScreen(
+              message: error.toString(),
+            );
+          }
+          return const FailureScreen(
+            message: 'Something went wrong on our end',
           );
         },
         loading: () {
