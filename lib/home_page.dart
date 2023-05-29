@@ -66,11 +66,11 @@ class BudgetScreen extends ConsumerWidget {
         },
         error: (error, _) {
           if (error is Failure) {
-            return FailureScreen(
+            return FailureBody(
               message: error.toString(),
             );
           }
-          return const FailureScreen(
+          return const FailureBody(
             message: 'Something went wrong on our end',
           );
         },

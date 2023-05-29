@@ -6,19 +6,16 @@ class Failure {
   Failure({required this.message});
 }
 
-class FailureScreen extends StatelessWidget {
-  const FailureScreen({
+class FailureBody extends StatelessWidget {
+  const FailureBody({
     super.key,
     required this.message,
   });
   final String message;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Budget Tracker'),
-      ),
-      body: Text(message),
+    return Center(
+      child: Text(message),
     );
   }
 }
